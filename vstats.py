@@ -4,7 +4,6 @@ import requests
 import json
 import pprint
 
-# https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=7c425537bc03a2620296456ff99d391e5ce167ed
 JCD_APIKEY      = ""
 JCD_APIURL      = "https://api.jcdecaux.com/vls/v1/"
 JCD_CONTRACT    = "Lyon"
