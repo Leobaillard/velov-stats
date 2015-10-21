@@ -1,0 +1,13 @@
+{
+	"jcd_apikey": "",
+	"jcd_apiurl": "https://api.jcdecaux.com/vls/v1/",
+	"jcd_contract": "",
+	"jcd_stations": [],
+	
+	"graphite_host": "",
+	"graphite_node": "",
+	"statsd_host": "",
+	"statsd_port": 8125,
+	
+	"measure_interval": 60
+}
