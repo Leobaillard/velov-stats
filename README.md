@@ -7,6 +7,7 @@ Fetches data from JCDecaux developer API and pushes them to StatsD/Graphite
 
 ## Requirements
  - Python 2/3
+ - requests: https://pypi.python.org/pypi/requests/
  - pystatsd: https://github.com/jsocol/pystatsd
 
 ## Configuration
