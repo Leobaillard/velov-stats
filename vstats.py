@@ -16,7 +16,6 @@ try:
 except:
     print("Can't load config file.")
     raise
-    exit(1)
 
 def get_stations_data():
     stations_data = {}
@@ -55,18 +54,18 @@ def openstatsd():
                      prefix=config['graphite_node'])
 
 def create_graphite_event(event_description, tags):
-  required_data = "Event from velov stats"
-  tags_string = " ".join(str(x) for x in tags)  # Since you will pass an array but graphite expects multi tags like "a,b,c" or "a b c"
-  event = {"what": event_description, "tags": tags_string, "data": required_data}
-  try:
-    requests.post("http://"+config['graphite_host']+"/events/", data=json.dumps(event), timeout=15, verify=False)
-  except Exception as exc:
-    print('Error while creating graphite event:', exc, file=sys.stderr)
+    required_data = "Event from velov stats"
+    tags_string = " ".join(str(x) for x in tags)  # Since you will pass an array but graphite expects multi tags like "a,b,c" or "a b c"
+    event = {"what": event_description, "tags": tags_string, "data": required_data}
+    try:
+        requests.post("http://"+config['graphite_host']+"/events/", data=json.dumps(event), timeout=15, verify=False)
+    except Exception as exc:
+        print('Error while creating graphite event:', exc, file=sys.stderr)
 
 def main():
     statsd = openstatsd()
 
-    while(True):
+    while True:
         stations_data = get_stations_data()
         for station_id, station_data in stations_data.items():
             pprint.pprint(str(station_id) + ": "+str(station_data))
@@ -80,6 +79,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-    #pprint.pprint(get_stations_data())
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
