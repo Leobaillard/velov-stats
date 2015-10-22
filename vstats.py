@@ -36,10 +36,15 @@ def get_station_data(station_id):
 
 def get_api_call(api_func):
     api_url = config['jcd_apiurl'] + api_func + "?apiKey=" + config['jcd_apikey'] + "&contract=" + config['jcd_contract']
-    data = requests.get(api_url)
-    if data.status_code == 200:
-        return data.json()
-    else:
+    try:
+        data = requests.get(api_url)
+        if data.status_code == 200:
+            return data.json()
+        else:
+            print("Error fetching data, creating graphite event")
+            create_graphite_event("Error fetching API data (" + api_func +")", ["error"])
+            return json.loads("{}")
+    except:
         print("Error fetching data, creating graphite event")
         create_graphite_event("Error fetching API data (" + api_func +")", ["error"])
         return json.loads("{}")
