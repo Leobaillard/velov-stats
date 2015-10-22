@@ -3,6 +3,8 @@ Getting Velo'V stations metrics for graphing purposes
 
 Fetches data from JCDecaux developer API and pushes them to StatsD/Graphite
 
+[![Build Status](http://jenkins.ttec-junior.fr/buildStatus/icon?job=velov-stats)](http://jenkins.ttec-junior.fr/job/velov-stats)
+
 ## Requirements
  - Python 2/3
  - pystatsd: https://github.com/jsocol/pystatsd
